@@ -1,0 +1,17 @@
+const { connect } = require("mongoose");
+const { config } = require("dotenv");
+
+//Invoking the dotenv config.
+config();
+const uri = process.env.DB_URI;
+//Set up a connection with the database.
+connect(uri, {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false,
+})
+  .then(() => {
+    console.log("Connected with database.");
+  })
+  .catch((error) => console.log(error.message));

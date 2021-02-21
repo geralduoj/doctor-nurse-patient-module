@@ -1,0 +1,27 @@
+{
+  "name": "doctor-nurse-patient-module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app/express.js",
+    "dev": "nodemon app/express.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geralduoj/doctor-nurse-patient-module.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/geralduoj/doctor-nurse-patient-module/issues"
+  },
+  "homepage": "https://github.com/geralduoj/doctor-nurse-patient-module#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.17",
+    "validator": "^13.5.2"
+  }
+}

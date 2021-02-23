@@ -1,9 +1,9 @@
 const express = require("express");
 const { config } = require("dotenv");
 //Routers.
-const mainRouter = require("./routers/MainRouter");
-const featuresRouter = require("./routers/FeaturesRouter");
-const customerRouter = require("./routers/CustomerRouter");
+const mainRouter = require("./routers/indexRouter");
+const featuresRouter = require("./routers/features");
+const customerRouter = require("./routers/customerRouter");
 
 //invoking the dotenv config.
 config();

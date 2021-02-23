@@ -1,9 +1,9 @@
 const express = require("express");
 const { config } = require("dotenv");
 //Routers.
-const indexRouter = require("./routers/indexRouter");
-//Routers.
-const featuresRouter = require("./routers/features");
+const mainRouter = require("./routers/MainRouter");
+const featuresRouter = require("./routers/FeaturesRouter");
+const customerRouter = require("./routers/CustomerRouter");
 
 //invoking the dotenv config.
 config();
@@ -13,10 +13,12 @@ const port = process.env.PORT;
 
 app.use(express.json());
 
-//Index router.
-app.use(indexRouter);
+//Main router.
+app.use(mainRouter);
 //Features router.
 app.use(featuresRouter);
+//Customer router.
+app.use(customerRouter);
 
 app.listen(port, () => {
   console.log("Server is up and running on port " + port + ".");

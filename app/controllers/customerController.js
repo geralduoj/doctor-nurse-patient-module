@@ -1,7 +1,14 @@
 //Load the 'customer' mongoose model.
-const customer = require("mongoose").model("customer");
+const customerModel = require("../models/CustomerModel");
 
 //Display all customers.
-exports.displayAllCustomers = (req, res) => {
-  res.json({ Customers: "All customer" });
+exports.displayAllCustomers = async (req, res) => {
+  try {
+    //Find all documents.
+    let allCustomers = await customerModel.find({});
+    res.status(200).send({ allCustomers });
+  } catch (e) {
+    //Log Errors.
+    res.status(400).send(e);
+  }
 };

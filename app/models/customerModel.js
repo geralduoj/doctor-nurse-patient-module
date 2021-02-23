@@ -1,7 +1,10 @@
-const { Schema, model } = require("mongoose");
-const  { isEmail, isCreditCard } = require("validator");
+// Load the Mongoose module and Schema object
+const mongoose = require("mongoose");
 
-const customerSchema = new Schema({
+//Load validator.
+const { isEmail } = require("validator");
+
+const customerSchema = new mongoose.Schema({
   firstName: { type: String, required: true, trim: true },
   lastName: { type: String, required: true, trim: true },
   email: {
@@ -24,7 +27,18 @@ const customerSchema = new Schema({
     trim: true,
   },
 });
+//This is where you specify what you would like to return.
+customerSchema.methods.toJSON = function () {
+  let customerProfile = this;
+  let customerObject = customerProfile.toObject();
 
-const customer = model("customer", customerSchema);
+  //Delete what you do not want to return using the attributes.
+  delete customerObject._id;
+  delete customerObject.password;
+  delete customerObject.__v;
+  return customerObject;
+};
+
+const customer = mongoose.model("customer", customerSchema);
 
 module.exports = customer;
